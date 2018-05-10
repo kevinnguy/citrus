@@ -18,7 +18,7 @@ class Product extends Model {
         price: { type: 'number', nullable: false, minimum: 0 },
         priceOld: { type: 'number', minimum: 0 },
         retailerUrlPath: { type: 'string', nullable: false },
-        expired: { type: 'boolean' },
+        views: { type: 'number', minimum: 0 },
       },
     };
   };
