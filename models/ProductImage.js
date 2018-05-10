@@ -11,11 +11,11 @@ class ProductImage extends Model {
   }
 
   url() {
-    const { hostname, path, scheme } = this;
+    const { hostname, path, scheme: protocol } = this;
     return URI({
       hostname,
       path,
-      scheme,
+      protocol,
     }).toString();
   }
 
