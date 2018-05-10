@@ -5,6 +5,16 @@ class CheckoutProduct extends Model {
     return 'checkout_products';
   }
 
+  $formatJson(data) {
+    let json = super.$formatJson(data);
+    const { quantity, productData } = json;
+
+    return {
+      ...productData,
+      quantity,
+    }
+  }
+
   static get jsonSchema() {
     return {
       type: 'object',
@@ -17,6 +27,27 @@ class CheckoutProduct extends Model {
         quantity: { type: 'number', minimum: 0 },
       },
     };
+  }
+
+  static get namedFilters() {
+    return {
+      exists: builder => {
+        builder.where('quantity', '>', 0);
+      }
+    };
+  }
+
+  static get relationMappings() {
+    return {
+      productData: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: __dirname + '/Product',
+        join: {
+          from: 'checkout_products.productId',
+          to: 'products.id',
+        },
+      },
+    }
   }
 }
 

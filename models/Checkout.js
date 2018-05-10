@@ -20,7 +20,7 @@ class Checkout extends Model {
 
   static get relationMappings() {
     return {
-      products: {
+      checkedOutProducts: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/CheckoutProduct',
         join: {
