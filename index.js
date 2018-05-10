@@ -1,10 +1,4 @@
-module.exports = {
-  Category: require('./models/Category'),
-  Product: require('./models/Product'),
-  ProductImage: require('./models/ProductImage'),
-  Profile: require('./models/Profile'),
-  Retailer: require('./models/Retailer'),
-  RetailerCategoryLink: require('./models/RetailerCategoryLink'),
-}
+const requireDir = require('require-dir');
 
+module.exports = requireDir('./models');
 module.exports.objection = require('objection');
