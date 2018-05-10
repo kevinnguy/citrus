@@ -1,0 +1,13 @@
+{
+  "name": "citrus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:kevinnguy/citrus.git",
+  "author": "Kevin Nguy",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "objection": "^1.1.8",
+    "urijs": "^1.19.1"
+  }
+}
