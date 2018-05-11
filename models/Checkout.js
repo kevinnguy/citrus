@@ -20,12 +20,12 @@ class Checkout extends Model {
 
   static get relationMappings() {
     return {
-      checkedOutProducts: {
+      productsMetadata: {
         relation: Model.HasManyRelation,
-        modelClass: __dirname + '/CheckoutProduct',
+        modelClass: __dirname + '/ProductCheckoutMetadata',
         join: {
           from: 'checkouts.id',
-          to: 'checkout_products.checkoutId',
+          to: 'product_checkout_metadata.checkoutId',
         },
       },
     }

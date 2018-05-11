@@ -19,7 +19,6 @@ class Product extends Model {
         priceOld: { type: 'number', minimum: 0 },
         retailerUrlPath: { type: 'string', nullable: false },
         views: { type: 'number', minimum: 0 },
-        quantity: { type: 'number', minimum: 0 },
       },
     };
   };

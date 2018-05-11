@@ -1,18 +1,21 @@
 const { Model } = require('objection');
 
-class CheckoutProduct extends Model {
+class ProductCheckoutMetadata extends Model {
   static get tableName() {
-    return 'checkout_products';
+    return 'product_checkout_metadata';
   }
 
   $formatJson(data) {
     let json = super.$formatJson(data);
-    const { quantity, productData } = json;
+    const { productData } = json;
+    delete json.productData;
 
     return {
       ...productData,
-      quantity,
-    }
+      metadata: {
+        checkout: json
+      },
+    };
   }
 
   static get jsonSchema() {
@@ -31,7 +34,7 @@ class CheckoutProduct extends Model {
 
   static get namedFilters() {
     return {
-      exists: builder => {
+      addedToCart: builder => {
         builder.where('quantity', '>', 0);
       }
     };
@@ -43,7 +46,7 @@ class CheckoutProduct extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: __dirname + '/Product',
         join: {
-          from: 'checkout_products.productId',
+          from: 'product_checkout_metadata.productId',
           to: 'products.id',
         },
       },
@@ -51,4 +54,4 @@ class CheckoutProduct extends Model {
   }
 }
 
-module.exports = CheckoutProduct;
+module.exports = ProductCheckoutMetadata;
