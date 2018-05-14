@@ -41,23 +41,15 @@ class Profile extends Model {
 
   static get relationMappings() {
     return {
-      // retailer: {
-      //   relation: Model.BelongsToOneRelation,
-      //   modelClass: __dirname + '/Retailer',
-      //   join: {
-      //     from: 'products.retailerId',
-      //     to: 'retailers.id',
-      //   },
-      // },
-      // images: {
-      //   relation: Model.HasManyRelation,
-      //   modelClass: __dirname + '/ProductImage',
-      //   join: {
-      //     from: 'products.id',
-      //     to: 'product_images.productId',
-      //   },
-      // },
-    };
+      likes: {
+        relation: Model.HasManyRelation,
+        modelClass: __dirname + '/ProductLikeMetadata',
+        join: {
+          from: 'profiles.id',
+          to: 'product_like_metadata.profileId',
+        },
+      },
+    }
   }
 }
 
