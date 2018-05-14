@@ -41,7 +41,7 @@ class Profile extends Model {
 
   static get relationMappings() {
     return {
-      likes: {
+      productLikes: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/ProductLikeMetadata',
         join: {

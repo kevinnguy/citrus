@@ -21,7 +21,7 @@ class Checkout extends Model {
 
   static get relationMappings() {
     return {
-      productsMetadata: {
+      products: {
         relation: Model.HasManyRelation,
         modelClass: __dirname + '/ProductCheckoutMetadata',
         join: {

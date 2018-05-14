@@ -38,7 +38,7 @@ class ProductLikeMetadata extends Model {
 
   static get namedFilters() {
     return {
-      liked: builder => builder.where('deleted', false),
+      true: builder => builder.where('deleted', false),
     };
   }
 
