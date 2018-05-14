@@ -14,6 +14,7 @@ class Checkout extends Model {
         id: { type: 'string', nullable: false, primary: true },
         profileId: { type: 'string', nullable: false },
         completedAt: { type: 'string' },
+        checkoutAt: { type: 'string' },
       },
     };
   }
