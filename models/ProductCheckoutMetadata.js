@@ -32,6 +32,8 @@ class ProductCheckoutMetadata extends Model {
         checkoutId: { type: 'string', nullable: false },
         productId: { type: 'string', nullable: false },
         quantity: { type: 'number', minimum: 0 },
+        addToRetailerCartAt: { type: 'string' },
+        purchasedAt: { type: 'string' },
       },
     };
   }
