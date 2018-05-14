@@ -8,14 +8,18 @@ class ProductCheckoutMetadata extends Model {
   $formatJson(data) {
     let json = super.$formatJson(data);
     const { productData } = json;
-    delete json.productData;
 
-    return {
-      ...productData,
-      metadata: {
-        checkout: json
-      },
-    };
+    if (productData) {
+      delete json.productData;
+      return {
+        ...productData,
+        metadata: {
+          checkout: json
+        },
+      };
+    }
+
+    return json;
   }
 
   static get jsonSchema() {
