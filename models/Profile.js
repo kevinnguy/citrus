@@ -18,7 +18,9 @@ class Profile extends Model {
   }
 
   fullName() {
-    return `${this.firstName} ${this.lastName}`;
+    const { firstName, lastName } = this;
+    const fullName = `${firstName || ''} ${lastName || ''}`.trim();
+    return fullName.length ? fullName : '';
   }
 
   static get jsonSchema() {
